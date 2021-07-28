@@ -14,4 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',\App\Http\Livewire\HomeComponent::class);
+Route::get('/shop',\App\Http\Livewire\ShopComponent::class);
+Route::get('/cart',\App\Http\Livewire\CartComponent::class);
+Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class);
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
